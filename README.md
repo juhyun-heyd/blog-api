@@ -1,4 +1,10 @@
 ## 블로그 API
+### 다운로드 링크: https://github.com/juhyun-heyd/blog-api/tree/main/jar
+<u>jar 파일 실행 시 local redis 설정이 필요합니다.</u>
+```shell
+# Docker Redis 설정
+docker run --name "local-redis" -d -p 6379:6379 redis
+```
 
 ### 1. API 명세서
 #### 블로그 검색 API
@@ -57,11 +63,6 @@ GET `/v1/search/popular-keyword`
 <br>
 
 ### 3. Build & Run & Test
-- <u>build 시 local redis 설정이 필요합니다.</u>
-```shell
-# Docker Redis 설정
-docker run --name "local-redis" -d -p 6379:6379 redis
-```
 
 #### Build
 `$ ./gradlew clean build -x test`
@@ -79,7 +80,7 @@ docker run --name "local-redis" -d -p 6379:6379 redis
 - 블로그 검색 리스트 캐싱 추가
   - 현재 카카오 API 검색 결과를 동기 방식으로 반환하고 있으나, 검색 리스트 비동기 처리 등 캐싱 처리를 고려할 필요성이 있음
 - Logback 적용 및 로깅 처리
-- 각 Config 설정 값 최적화
+- 각 Config 설정값 최적화
 
 ### Architecture
 ![image](https://user-images.githubusercontent.com/50076031/226584465-e304e488-da1d-478b-99ab-d3b21aeb337d.png)
