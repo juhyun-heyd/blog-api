@@ -3,6 +3,7 @@ package com.heyd.blogapi.domain.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.Assert;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +31,8 @@ public class PopularKeyword extends BaseTimeEntity {
     }
 
     public PopularKeyword(String keyword, Long count) {
+        Assert.state(count >= 0, "count must greater than zero");
+
         this.keyword = keyword;
         this.count = count;
     }
